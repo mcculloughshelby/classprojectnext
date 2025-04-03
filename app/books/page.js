@@ -1,26 +1,22 @@
 "use client"
 import { useState, useContext,useEffect } from "react";
+import GetCategories from "../services/CategoryRoutes";
+import GetBooks from "../services/BookRoutes";
 //import { DataContext } from "../App";
 //import { categories } from "../Model/categories.json";
 //import { GetBooks,deleteBook, BookUpdate } from "../services/BookService";
 export default function Books() {
-  
-//   if(sessionStorage.getItem("cart")==null){
-//     sessionStorage.setItem("cart",JSON.stringify([]));
-//   }
-
-  
-  //const { logStatus ,setLogStatus} = useContext(DataContext);
+  const [categories, setCategories] = useState([]);
   const[logStatus,setLogStatus]=useState(0);
-  if(sessionStorage.getItem("logValue")!=null){
-    setLogStatus(sessionStorage.getItem("logValue"))
-  }
+  
   const [books, setBooks] = useState([]);
   const [length, setLength] = useState(-1);
 
   //************************************************* */
 
   async function getlist(){
+     var clist=await GetCategories();
+     setCategories(clist);
      var list=await GetBooks();
      setBooks(list);
      setLength(list.length);
