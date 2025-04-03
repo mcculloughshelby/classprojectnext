@@ -1,6 +1,6 @@
 "use client"
 import { useState, useContext,useEffect } from "react";
-import GetCategories from "../services/CategoryRoutes";
+import GetCategories from "../Services/CategoryRoutes";
 import GetBooks from "../services/BookRoutes";
 //import { DataContext } from "../App";
 //import { categories } from "../Model/categories.json";
