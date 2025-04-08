@@ -1,11 +1,10 @@
 "use client"
 import { useState, useContext,useEffect } from "react";
 import GetCategories from "../Services/CategoryRoutes";
-import GetBooks from "../services/BookRoutes";
-//import { DataContext } from "../App";
-//import { categories } from "../Model/categories.json";
-//import { GetBooks,deleteBook, BookUpdate } from "../services/BookService";
+import {GetBooks,DeleteBook,UpdateBook,AddBook} from "../services/BookRoutes";
+import { MyContext } from "@/components/MyContext";
 export default function Books() {
+  const {userRole}=useContext(MyContext);
   const [categories, setCategories] = useState([]);
   const[logStatus,setLogStatus]=useState(0);
   
@@ -27,24 +26,27 @@ export default function Books() {
     if(sessionStorage.getItem("cart")==null){
         sessionStorage.setItem("cart",JSON.stringify([]));
       }
-    if(sessionStorage.getItem("logValue")!=null){
-        setLogStatus(sessionStorage.getItem("logValue"));
-    }
+    // if(sessionStorage.getItem("logValue")!=null){
+    //     setLogStatus(sessionStorage.getItem("logValue"));
+    // }
+    setLogStatus(userRole)
     getlist();
-  },      [logStatus]      );
+  },      [userRole, length]      );
   //***************************************************************** */
   
   async function delBook(e){
     var ind=e.target.value;
 
     await deleteBook(books[ind].id, setBooks,setLength);
-    alert(" We will delete book#"+ind+" from the database");
+    alert(" We will delete book #"+ind+" from the database");
+    setBooks([]);
+    setLength(0);
   }
     //***************************************************************** */
    async function updateBook(e){
       var ind=e.target.value;
       var mybook=books[ind];
-      await BookUpdate(mybook);
+      await UpdateBook(mybook);
       alert(" We will alter book#"+ind+" in the database");
     }
   //************************************************************************ */

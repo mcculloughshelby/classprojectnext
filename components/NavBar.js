@@ -1,15 +1,25 @@
-import {useState, useContext} from "react";
-//import { DataContext } from "../App";
+import {useState, useContext,useEffect} from "react";
+import { useRouter } from "next/navigation";
+import {MyContext} from "../context/MyContext";
 export default function NavBar(){
+const {userRole, upDateRole}=useContext(MyContext);
   //const { booklist,logStatus,setLogStatus } = useContext(DataContext);
 const [uname,setUname]=useState("");
+
 const [pwd, setPwd]=useState("");
 const[logStatus, setLogStatus]=useState(0);
+useEffect(()=>{
+  if(sessionStorage.getItem("logValue")!=null){
+    setLogStatus(sessionStorage.getItem("logValue"));
+  }
+}, [logStatus, userRole]);
+
 function check(){
   if(uname.trim()==="admin"  && pwd.trim() === "test")
 {
   setLogStatus(2)
     sessionStorage.setItem("logValue",2);
+    upDateRole(2);
   }
  
     
@@ -17,6 +27,7 @@ function check(){
 if(uname.trim()==="user1"  && pwd.trim() === "test")
   sessionStorage.setItem("logValue",1);
 setLogStatus(1)
+upDateRole(1);
 
 }
 
@@ -25,6 +36,7 @@ function logout(){
  sessionStorage.setItem("logValue",0);
 
  setLogStatus(0)
+ updateRole(0);
  //setlogin(0);
 
 }
