@@ -49,8 +49,8 @@ export default function AddBook(){
     return (<h1>Please login as admin</h1>)
    }
    else if(done==1){
-    return(<Navigate to="/books" />)
-   }
+    useRouter().push("/books"); 
+  }
    //*************************** */
    else
     return(
