@@ -1,20 +1,32 @@
 import {useState, useContext,useEffect} from "react";
+import { useRouter } from "next/navigation";
 import GetCategories from "../Services/CategoryRoutes";
-import {Navigate} from "react-router-dom";
+//import {Navigate} from "react-router-dom";
 //import { DataContext } from "../App";
 import { MyContext } from "@/components/MyContext";
 
 export default function Cart(){
+    const [shopCart,setCart]=useState([]);
+    const [cartSize,setCartSize]=useState(0);
+    const {userRole, upDateRole}=useContext(MyContext);
+ useEffect(()=>{
     if(sessionStorage.getItem("cart")==null){
         sessionStorage.setItem("cart",JSON.stringify([]));
       }
+      var item=JSON.parse(sessionStorage.getItem("cart"));
+      setCart(item);
+      if (sessionStorage.getItem("logValue")!=null){
+        upDateRole(sessionStorage.getItem("logValue"));
+      }
+ },[userRole]);
+
+    
       
-     const {logStatus}=useContext(DataContext);
- const [shopCart,setCart]=useState(JSON.parse(sessionStorage.getItem("cart")));
- const [cartSize,setCartSize]=useState(shopCart.length);
- if(logStatus==0){
-  return  <Navigate to="/books"/>
- }
+
+ 
+ if(userRole==0 || userRole==2){
+//   return  <Navigate to="/books"/>
+    useRouter().push("/books") }
 else{
   return(
     <div id="cartContainer"  className="h-[40vh] px-50 overflow-y-scroll text-right bg-amber-200">
