@@ -2,7 +2,8 @@
 import {useState, useContext, use} from "react";
 //import {categories} from "../Model/categories.json";
 import GetCategories from "../Services/CategoryRoutes";
-import { AddBook } from "../services/BooksRoutes";
+//import { AddBook } from "../services/BooksRoutes";
+import {BookAdd} from "../Services/BooksRoutes";
 import { useRouter } from "next/navigation";
 import { MyContext } from "../components/MyContext";
 
@@ -29,7 +30,7 @@ export default function AddBook(){
     useEffect(()=>{
         loadData();
 
-    },[userRole, ]);
+    },[userRole, done]);
 
 
     //************************************************************ */
