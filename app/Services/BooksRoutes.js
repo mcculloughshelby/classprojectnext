@@ -49,7 +49,7 @@ async function UpdateBook(book){
     }
   }
  // bookRouter.get("/addbook", async (req, res) => {
-  async function AddBook(book){
+  async function BookAdd(book){
     try {
         //var book=req.body;
         var title =book.title;
@@ -153,4 +153,4 @@ async function UpdateBook(book){
 
 
 
-export {GetBooks,DeleteBook,UpdateBook,AddBook};
+export {GetBooks,DeleteBook,UpdateBook,BookAdd};

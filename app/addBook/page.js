@@ -1,8 +1,8 @@
 "use client";
-import {useState, useContext} from "react";
+import {useState, useContext, use} from "react";
 //import {categories} from "../Model/categories.json";
 import GetCategories from "../Services/CategoryRoutes";
-import { BookAdd } from "../services/BookService";
+import { AddBook } from "../services/BooksRoutes";
 import { useRouter } from "next/navigation";
 import { MyContext } from "../components/MyContext";
 
@@ -15,7 +15,21 @@ export default function AddBook(){
     const [price,setPrice]=useState("");
     const [cat,setCat]=useState("");
     const [done, setDone]=useState(0);
+    const [categories, setCatList]=useState([]);
+
     const {userRole, upDateRole}=useContext(MyContext);
+
+    async function getCat(){
+         var clist=await GetCategories();
+         setCatList(clist);
+    }
+    async function loadData(){
+        await getCat();
+    }
+    useEffect(()=>{
+        loadData();
+
+    },[userRole, ]);
 
 
     //************************************************************ */
@@ -26,10 +40,11 @@ export default function AddBook(){
        setDone(1);
 
     }
+
     //******************************************************************************************* */
    var catSel=categories.map((cat,index)=>{return <option value={cat.id}>{cat.category}</option>})
    //following lines added
-   if(logStatus==0 || logStatus==1){
+   if(userRole==0 || userRole==1){
     return (<h1>Please login as admin</h1>)
    }
    else if(done==1){
