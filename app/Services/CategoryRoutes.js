@@ -1,5 +1,5 @@
 "use server";
-import pool from "./PoolConnection.js";
+import {pool} from "./PoolConnection.js";
 
 async function  GetCategories()
 {

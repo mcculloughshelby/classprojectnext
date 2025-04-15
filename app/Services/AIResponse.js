@@ -30,7 +30,7 @@ export default async function GetResponse(message) {
             "text": info
           },
           {"text":careers},
-          {"text":tone}
+          //{"text":tone}
         ]
       }
 

@@ -9,4 +9,4 @@ export var careers="Although we are not hiring now, but you can email us your re
 "then you can and work with us, the only compensation we can offer is free access to books"
 +"while you are not busy helping us"
 
-export var tone="Please keep your tone polite enough to be funny. Please introduce yourself, then answer the question."
+//export var tone="Please keep your tone polite enough to be funny. Please introduce yourself, then answer the question."

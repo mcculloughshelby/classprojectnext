@@ -36,7 +36,7 @@ export default function ChatBot(){
 
  <div > <textarea defaultValue={question}                     onChange={(e)=>{setQuestion(e.target.value) }}  onKeyDown={handleEnter}   className="text-1xl border-2 overflow-y-scroll w-[40vw] h-[10vh]"/>
 
-             <div >  <button className="border-2 bg-emerald-600 px-30 text-center"               value="Submit" onClick={callGPT}>Submit</button>   </div>
+             <div >  <button className="border-2 bg-emerald-600 px-30 text-center"               value="Submit" onClick={callGoogleAI}>Submit</button>   </div>
 
        </div>
        

@@ -1,5 +1,5 @@
-  "use server";
-import pool from "./PoolConnection.js";
+"use server";
+import {pool} from "./PoolConnection.js";
 
 async function GetBooks()
 {
