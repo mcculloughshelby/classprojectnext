@@ -1,6 +1,7 @@
+"use client"
 import {useState, useContext,useEffect} from "react";
 import { useRouter } from "next/navigation";
-import {MyContext} from "../context/MyContext";
+import {MyContext} from "./MyContext";
 export default function NavBar(){
 const {userRole, upDateRole}=useContext(MyContext);
   //const { booklist,logStatus,setLogStatus } = useContext(DataContext);
@@ -62,7 +63,7 @@ var logoutUser=<div >
        <div><a href="/books">Books</a></div>
        
        <div><a href="/contactus">Contact Us</a></div>
-       <div> </div>
+       <div><a href="/chatbot">Ask A Question</a> </div>
        <div> {//sessionStorage.getItem("admin")==1?<a href="/addBook">Add New Book</a>:""
        // 
        // 

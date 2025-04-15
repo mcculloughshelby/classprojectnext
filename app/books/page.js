@@ -1,8 +1,8 @@
 "use client"
 import { useState, useContext,useEffect } from "react";
 import GetCategories from "../Services/CategoryRoutes";
-import {GetBooks,DeleteBook,UpdateBook,AddBook} from "../services/BookRoutes";
-import { MyContext } from "@/components/MyContext";
+import {GetBooks,DeleteBook,UpdateBook,AddBook} from "../Services/BookRoutes";
+import { MyContext } from "@/app/components/MyContext";
 export default function Books() {
   const {userRole}=useContext(MyContext);
   const [categories, setCategories] = useState([]);

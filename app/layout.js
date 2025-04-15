@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Provider } from "@/components/MyContext";
+import { Provider } from "@/app/components/MyContext";
 import NavBar from "./components/NavBar";
 
 export default function RootLayout({ children }) {

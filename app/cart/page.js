@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import GetCategories from "../Services/CategoryRoutes";
 //import {Navigate} from "react-router-dom";
 //import { DataContext } from "../App";
-import { MyContext } from "@/components/MyContext";
+import { MyContext } from "@/app/components/MyContext";
 
 export default function Cart(){
     const [shopCart,setCart]=useState([]);
