@@ -1,3 +1,4 @@
+"use client"
 import {useState, useContext,useEffect} from "react";
 import { useRouter } from "next/navigation";
 import GetCategories from "../Services/CategoryRoutes";

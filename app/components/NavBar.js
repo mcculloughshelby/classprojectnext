@@ -58,7 +58,7 @@ var logoutUser=<div >
 </div>
   return(
 
-    <div className="grid grid-cols-6 bg-blue-100 text-2xl px-10 py-20">
+    <div className="grid grid-cols-6 bg-red-100 text-2xl text-black px-10 py-20">
       <div><a href="/Home">Home</a></div>
        <div><a href="/books">Books</a></div>
        

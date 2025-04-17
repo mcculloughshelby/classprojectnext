@@ -12,7 +12,7 @@ async function GetBooks()
     console.error("Query error:", error);
   }
   let list=[];
-  result.tows.map((tmp,index)=>{
+  result.rows.map((tmp,index)=>{
   var book={"id":tmp.id,"title":tmp.title,"author":tmp.author,"price":tmp.price,"category_id":tmp.category_id};
     list.push(book);
    })
